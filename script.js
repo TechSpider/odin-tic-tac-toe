@@ -1,13 +1,13 @@
 Game = createGame();
 
 const tiles = document.querySelectorAll(".tile");
-
 tiles.forEach((tile) =>
 	tile.addEventListener("click", () => {
 		playRound(tile.id);
 	})
 );
 
+// Creates Game object to store relevant info
 function createGame() {
 	let Game = {
 		gameboard: ["", "", "", "", "", "", "", "", ""],
@@ -23,6 +23,7 @@ function createGame() {
 	return Game;
 }
 
+// Handles most everything that should happen when a player clicks a tile
 function playRound(tileID) {
 	let currentTile = document.querySelector(`#${tileID}`);
 
