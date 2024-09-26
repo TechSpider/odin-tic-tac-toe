@@ -54,22 +54,22 @@ function playRound(tileID) {
 // Check for any winners
 function checkBoard(Board) {
 	if (
-		everyNth(Board, 3, 0) === "x" ||
-		everyNth(Board, 3, 1) === "x" ||
-		everyNth(Board, 3, 2) === "x" ||
-		everyNth(Board, 4, 0) === "x" ||
-		everyNth(Board, 2, 2) === "x" ||
+		everyNth(Board, 3, 0).every((el) => el === "x") ||
+		everyNth(Board, 3, 1).every((el) => el === "x") ||
+		everyNth(Board, 3, 2).every((el) => el === "x") ||
+		everyNth(Board, 4, 0).every((el) => el === "x") ||
+		everyNth(Board, 2, 2).every((el) => el === "x") ||
 		Board.toSpliced(3).every((el) => el === "x") ||
 		Board.slice(3, 6).every((el) => el === "x") ||
 		Board.toSpliced(0, 6).every((el) => el === "x")
 	) {
 		return "x";
 	} else if (
-		everyNth(Board, 3, 0) === "o" ||
-		everyNth(Board, 3, 1) === "o" ||
-		everyNth(Board, 3, 2) === "o" ||
-		everyNth(Board, 4, 0) === "o" ||
-		everyNth(Board, 2, 2) === "o" ||
+		everyNth(Board, 3, 0).every((el) => el === "o") ||
+		everyNth(Board, 3, 1).every((el) => el === "o") ||
+		everyNth(Board, 3, 2).every((el) => el === "o") ||
+		everyNth(Board, 4, 0).every((el) => el === "o") ||
+		everyNth(Board, 2, 2).every((el) => el === "o") ||
 		Board.toSpliced(3).every((el) => el === "o") ||
 		Board.slice(3, 6).every((el) => el === "o") ||
 		Board.toSpliced(0, 6).every((el) => el === "o")
