@@ -29,14 +29,16 @@ function playRound(tileID) {
 	if (Game.currentPlayer === "x") {
 		const X = document.createElement("div");
 		X.textContent = "X";
-		X.classList.add("o-mark");
+		X.classList.add("x-mark");
 		currentTile.appendChild(X);
+		Game.gameboard[Number(tileID.slice(-1)) - 1] = "x";
 		Game.currentPlayer = "o";
 	} else if (Game.currentPlayer === "o") {
 		const O = document.createElement("div");
 		O.textContent = "O";
-		O.classList.add("x-mark");
+		O.classList.add("o-mark");
 		currentTile.appendChild(O);
+		Game.gameboard[Number(tileID.slice(-1)) - 1] = "o";
 		Game.currentPlayer = "x";
 	} else {
 		alert("NO CURRENTPLAYER ERROR");
