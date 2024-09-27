@@ -1,11 +1,17 @@
-Game = createGame();
-
 const tiles = document.querySelectorAll(".tile");
 tiles.forEach((tile) =>
 	tile.addEventListener("click", () => {
 		playRound(tile.id);
 	})
 );
+
+const newGameButton = document.querySelector("#new-game-button");
+const changeModeButton = document.querySelector("#change-mode-button");
+
+const onePlayerButton = document.querySelector("one-player-button");
+const twoPlayerButton = document.querySelector("two-player-button");
+
+Game = createGame();
 
 // Creates Game object to store relevant info
 function createGame() {
@@ -59,7 +65,9 @@ function checkBoard(Board) {
 		everyNth(Board, 3, 1).every((el) => el === "x") ||
 		everyNth(Board, 3, 2).every((el) => el === "x") ||
 		everyNth(Board, 4, 0).every((el) => el === "x") ||
-		everyNth(Board, 2, 2).every((el) => el === "x") ||
+		everyNth(Board, 2, 2)
+			.toSpliced(3, 1)
+			.every((el) => el === "x") ||
 		Board.toSpliced(3).every((el) => el === "x") ||
 		Board.slice(3, 6).every((el) => el === "x") ||
 		Board.toSpliced(0, 6).every((el) => el === "x")
@@ -70,7 +78,9 @@ function checkBoard(Board) {
 		everyNth(Board, 3, 1).every((el) => el === "o") ||
 		everyNth(Board, 3, 2).every((el) => el === "o") ||
 		everyNth(Board, 4, 0).every((el) => el === "o") ||
-		everyNth(Board, 2, 2).every((el) => el === "o") ||
+		everyNth(Board, 2, 2)
+			.toSpliced(3, 1)
+			.every((el) => el === "o") ||
 		Board.toSpliced(3).every((el) => el === "o") ||
 		Board.slice(3, 6).every((el) => el === "o") ||
 		Board.toSpliced(0, 6).every((el) => el === "o")
